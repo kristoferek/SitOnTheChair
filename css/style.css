@@ -162,7 +162,7 @@ h2{
   padding: 0 50px 0 0;
 }
 
-.slider-description-title{
+.slider-description-title, .slider-description-title > span{
   width: 100%;
   height: 120px;
   font-size: 40px;
@@ -171,6 +171,11 @@ h2{
   text-transform: uppercase;
   text-align: center;
   padding: 40px 0;
+}
+
+.slider-description-title > span{
+  color: #27c7ab;
+  font-weight: 700;
 }
 
 .slider-description-text{
