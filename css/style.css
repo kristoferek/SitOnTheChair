@@ -96,21 +96,57 @@ h2{
   color: white;
   text-align: right;
   margin-left: 50px;
+  position: relative;
 }
 
-.top-menu > ul > li > a:link{
+.top-menu li > a:link{
   color: white;
 }
 
-.top-menu >  ul > li > a:visited{
+.top-menu li > a:visited{
   color: white;
 }
 
-.top-menu >  ul > li > a:hover{
+.top-menu li > a:hover{
   color: #28d7b8;
 }
-.top-menu >  ul > li > a:active {
+.top-menu li > a:active {
   color: #27c7ab;
+}
+
+.top-menu > ul > li > ul{
+  position: absolute;
+  margin: 0;
+  z-index: 2;
+  padding: 10px 0 0 0;
+}
+.top-menu > ul > li > ul:before{
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  background-color: black;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  content: " ";
+}
+
+.top-menu > ul > li > ul > li{
+  background-color: black;
+  text-transform: none;
+  font-weight: 500;
+  text-align: left;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.top-menu > ul > li > ul > li:first-child{
+  padding-top: 10px;
+}
+.top-menu > ul > li > ul > li:last-child{
+  padding-bottom: 10px;
 }
 
 /* Slider */
@@ -467,6 +503,12 @@ background-color: #f1f1f1;
   padding-top: 30px;
 }
 
+.form-title #errormsg {
+  color: red;
+  line-height: 3rem;
+  padding: 15px 0;
+}
+
 .contact-form-left-container{
   width: 655px;
   padding-right: 30px;
@@ -505,26 +547,22 @@ background-color: #f1f1f1;
   padding-left: 10px;
 }
 
-.contact-form-agreement .checkbox{
+.contact-form-agreement .checkbox, .contact-form-agreement .checkbox:hover{
   height: 48px;
   width: 48px;
-}
-
-.contact-form-agreement .checkbox:active{
   background-image: url('../images/form_ok.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+.contact-form-agreement .checkbox.unchecked{
+  background-image: none;
 }
 
 .contact-form-agreement .checkbox:hover {
-  background-image: url('../images/form_ok.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
   opacity: 0.5;
 }
-
 
 .contact-form-agreement .checkbox,
 .contact-form-agreement .description{
