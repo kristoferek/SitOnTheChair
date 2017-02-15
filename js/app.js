@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
   //Zapisz do tablicy elementy menu 1 poziomu
   var menuElements = document.querySelectorAll('.top-menu> ul > li');
-  console.log(menuElements);
 
   // Dodaj nasłuchowanie dla elemenów menu 1 poziomu
   for (var i = 0; i < menuElements.length; i++) {
@@ -80,7 +79,8 @@ document.addEventListener("DOMContentLoaded", function(){
     // Jesli brak uwag do wyswietlenia wyslij formularz, w innym przypadku
     // wyswietle je w div errorMsg
     if (komunikat.length === 0) {
-      form.submit();
+      errorMsg.innerHTML = komunikat;
+      form.submit;
     } else {
       errorMsg.innerHTML = komunikat;
     }
@@ -88,18 +88,17 @@ document.addEventListener("DOMContentLoaded", function(){
 
   // Odnajduje guzik Submit i przy kliknieciu wywoluje validate()
   var submitButton = form.elements.submitBtt;
-  console.log(submitButton);
   submitButton.addEventListener('click', validate);
-
 
   // Sprawdza stan checkboxa i zmienia na przeciwny, styluje checkboxDiv
   function changeCheckboxState(){
     // Odnajduje ukryty checkbox zgody na przetwarzanie danych
     var checkboxInput = this.querySelector('#agreement');
+
     // Zmienia stan checkboxa na przeciwny
     checkboxInput.checked = !checkboxInput.checked;
-    // Zmienia klase checkboxDiv na zaznaczony lub odznaczony (.unchecked)
-    // w zaleznosci od stanu ukrytego chackboxa
+
+    // Zmienia klase checkboxDiv na odznaczony lub nie (.unchecked) i ukrywa lub pokazuje "ptaszka" w zaleznosci od stanu ukrytego chackboxa
     if (checkboxInput.checked) {
       this.classList.remove('unchecked');
     } else {
@@ -107,9 +106,25 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   }
 
-  // Definiuje zmienna checkboxDiv i przy kliknieciu wywoluje changeCheckboxState
+  // Odnajduje checkboxDiv i przy kliknieciu wywoluje changeCheckboxState
   var checkboxDiv = document.querySelector('div.checkbox');
-  console.log(checkboxDiv);
   checkboxDiv.addEventListener('click', changeCheckboxState);
+
+  // Znajduje bloki z obrazkami i chowa blok z nazwa  po janechaniu myszka
+  function hideTitleBar(){
+    var titleBar = this.querySelector('div.title-bar');
+    titleBar.style.visibility = 'hidden';
+  }
+  function showTitleBar(){
+    var titleBar = this.querySelector('div.title-bar');
+    titleBar.style.visibility = 'visible';
+  }
+
+  var prNameBlock = document.querySelectorAll('.product-img');
+  console.log(prNameBlock);
+  for (var i = 0; i < prNameBlock.length; i++) {
+    prNameBlock[i].addEventListener('mouseover', hideTitleBar);
+    prNameBlock[i].addEventListener('mouseout', showTitleBar);
+  }
 
 });

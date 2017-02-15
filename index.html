@@ -7,7 +7,7 @@
     <script src="js/app.js" type="text/javascript"></script>
     <script src="https://use.fontawesome.com/d15534c4ab.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,900&amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/main.css" />
 </head>
 <body>
 
@@ -26,6 +26,8 @@
             <div class="top-menu">
               <ul>
                 <li><a href="#">o firmie</a>
+
+                  <!-- Creates hidden submenu -->
                   <ul class="top-submenu hidden">
                     <li><a href="#">Aktualności</a></li>
                     <li><a href="#">Nasz team</a></li>
@@ -35,7 +37,7 @@
                 <li><a href="#">galeria</a></li>
                 <li><a href="#">kontakt</a></li>
               </ul>
-              <!-- Creates hidden submenu -->
+
 
             </div>
           </nav>
@@ -58,9 +60,7 @@
 
             <!-- Description -->
             <div class="slider-description">
-              <div class="slider-description-title">
-                sit <span>on</span> our <span>chair</span>
-              </div>
+              <div class="slider-description-title">sit <span>on</span> our <span>chair</span></div>
               <div class="slider-description-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </div>
@@ -88,41 +88,40 @@
       <!-- Creates section Product List -->
       <section id="product-list">
         <div class="container clearfix">
-
-          <!-- Product left -->
-          <div class="product-left">
-            <div class="title-bar">
-              chair <span class="chair-name">claire</span>
-              <div class="underline">
+          <div class="product">
+            <!-- Product left -->
+            <div class="product-img">
+              <div class="title-bar">
+                chair <span class="chair-name">claire</span>
+                <div class="underline">
+                </div>
               </div>
             </div>
-          </div>
 
-
-          <!-- Product center -->
-          <div class="product-center">
-            <div class="title-bar">
-              chair <span class="chair-name">margerita</span>
-              <div class="underline">
+            <!-- Product center -->
+            <div class="product-img">
+              <div class="title-bar">
+                chair <span class="chair-name">margerita</span>
+                <div class="underline">
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Product right -->
-          <div class="product-right">
-            <div class="title-bar">
-              Finds all inputs
-              <div class="underline">
+            <!-- Product right -->
+            <div class="product-txt">
+              <div class="title-bar">
+                Finds all inputs
+                <div class="underline">
+                </div>
               </div>
-            </div>
-            <div class="text-box">
-              Finds all inputs that are not checked and highlights the next sibling span. Notice there is no change when clicking checkboxes since no click events has been linked. <br><br>
-              Notice there is no change when clicking checkboxes since no click events has been linked.
+              <div class="text-box">
+                Finds all inputs that are not checked and highlights the next sibling span. Notice there is no change when clicking checkboxes since no click events has been linked. <br><br>
+                Notice there is no change when clicking checkboxes since no click events has been linked.
+              </div>
             </div>
           </div>
         </div>
       </section>
-
       <!-- End of Product List -->
 
       <!-- Creates section Offer -->
@@ -132,10 +131,9 @@
           <header>
             <div class="offer-boxes-section-title">
               <h2>Cennik</h2>
-            </div>
-            <div class="underline">
+              <div class="underline"></div>
+              </div>
 
-            </div>
           </header>
 
           <!-- Offer items list -->
@@ -272,7 +270,7 @@
         <div class="container contact-form">
 
           <!-- Form title -->
-            <header>
+          <header>
             <div class="form-title">
               <h2>kontakt</h2>
               <div class="underline"></div>
@@ -284,7 +282,7 @@
           <form class="clearfix" action="index.html" method="post">
 
             <!-- Left column -->
-            <div class="contact-form-left-container">
+            <div class="left-container">
               <div class="form-field">
                 <input type="text" name="name" id="senderName" placeholder="Imię">
               </div>
@@ -297,7 +295,7 @@
             </div>
 
             <!-- Right column -->
-            <div class="contact-form-right-container">
+            <div class="right-container">
               <div>
                 <img src="images/red_chair.png" width="264" height="210" alt="">
               </div>
@@ -310,7 +308,7 @@
                   <input type="checkbox" name="agree" id="agree" class="hidden">
                 </div>
               </div>
-              <div class="contact-form-submit-button">
+              <div class="submit-button">
                 <input type="submit" name="submit" id="submitBtt" value="wyślij">
               </div>
             </div>
