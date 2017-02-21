@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-
+/* Wyświetlanie menu */
   //Zapisz do tablicy elementy menu 1 poziomu
   var menuElements = document.querySelectorAll('.top-menu> ul > li');
 
@@ -25,6 +25,70 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   }
 
+/* Wyswietlanie slidera */
+  var sliderActiveIndex = 0;
+  var sliderArr = document.querySelectorAll('.slider');
+  var sliderLastIndex = sliderArr.length - 1;
+
+  // Dodaje animacje wjazdu slider
+  // @keyframes slideFromLeft
+
+  // Funkcja chowa aktualny slider i pokazuje poprzedni
+  function moveLeft(){
+    if (sliderActiveIndex === 0) {
+      sliderArr[sliderActiveIndex].classList.add('hidden');
+      sliderActiveIndex = sliderLastIndex;
+      sliderArr[sliderActiveIndex].classList.remove('hidden');
+      sliderArr[sliderActiveIndex].style.animation = 'slideInLeft 1s';
+    } else {
+      sliderArr[sliderActiveIndex].classList.add('hidden');
+      sliderActiveIndex-- ;
+      sliderArr[sliderActiveIndex].style.animation = 'slideInLeft 1s';
+      sliderArr[sliderActiveIndex].classList.remove('hidden');
+    }
+  }
+
+  // Funkcja chowa aktualny slider i pokazuje nastepny
+  function moveRight(){
+    if (sliderActiveIndex === sliderLastIndex) {
+      sliderArr[sliderActiveIndex].classList.add('hidden');
+      sliderActiveIndex = 0;
+      sliderArr[sliderActiveIndex].style.animation = 'slideInRight 1s';
+      sliderArr[sliderActiveIndex].classList.remove('hidden');
+    } else {
+      sliderArr[sliderActiveIndex].classList.add('hidden');
+      sliderActiveIndex++ ;
+      sliderArr[sliderActiveIndex].style.animation = 'slideInRight 1s';
+      sliderArr[sliderActiveIndex].classList.remove('hidden');
+    }
+  }
+
+  for (var i = 0; i < sliderArr.length; i++) {
+    var leftArr = sliderArr[i].querySelector('.left-arrow');
+    var rightArr = sliderArr[i].querySelector('.right-arrow');
+    leftArr.addEventListener('click', moveLeft);
+    rightArr.addEventListener('click', moveRight);
+  }
+
+
+/* Wyswietlanie paska z tytulem na blokach z obrazami*/
+  // Znajduje bloki z obrazkami i chowa blok z nazwa  po janechaniu myszka
+  function hideTitleBar(){
+    var titleBar = this.querySelector('div.title-bar');
+    titleBar.style.visibility = 'hidden';
+  }
+  function showTitleBar(){
+    var titleBar = this.querySelector('div.title-bar');
+    titleBar.style.visibility = 'visible';
+  }
+
+  var productNameBlock = document.querySelectorAll('.product-img');
+  for (var i = 0; i < productNameBlock.length; i++) {
+    productNameBlock[i].addEventListener('mouseover', hideTitleBar);
+    productNameBlock[i].addEventListener('mouseout', showTitleBar);
+  }
+
+/* Walidacja formularza */
   //Odnajduje formularz
   var form = document.forms[0];
 
@@ -68,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function(){
       textBox.style.borderColor = originalBorderColor;
     }
 
-    // Prosi o zanzacznie checkboxDiv ze zgodą na przetwarzanie danch
+    // Prosi o zanzacznie checkboxDiv ze zgodą na przetwarzanie danych
     if (zgoda.checked === false) {
       komunikat += '<i class="fa fa-check-square-o fa-lg" aria-hidden="true"></i> &nbsp;&nbsp;Zaznacz zgodę na przetwarzanie danych (wymagane)';
       zgodaDiv.style.borderColor = 'red';
@@ -109,22 +173,5 @@ document.addEventListener("DOMContentLoaded", function(){
   // Odnajduje checkboxDiv i przy kliknieciu wywoluje changeCheckboxState
   var checkboxDiv = document.querySelector('div.checkbox');
   checkboxDiv.addEventListener('click', changeCheckboxState);
-
-  // Znajduje bloki z obrazkami i chowa blok z nazwa  po janechaniu myszka
-  function hideTitleBar(){
-    var titleBar = this.querySelector('div.title-bar');
-    titleBar.style.visibility = 'hidden';
-  }
-  function showTitleBar(){
-    var titleBar = this.querySelector('div.title-bar');
-    titleBar.style.visibility = 'visible';
-  }
-
-  var prNameBlock = document.querySelectorAll('.product-img');
-  console.log(prNameBlock);
-  for (var i = 0; i < prNameBlock.length; i++) {
-    prNameBlock[i].addEventListener('mouseover', hideTitleBar);
-    prNameBlock[i].addEventListener('mouseout', showTitleBar);
-  }
 
 });

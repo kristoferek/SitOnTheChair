@@ -19,12 +19,15 @@
 
 $default-color: #27c7ab;
 
-a:link{
-  color: #28d7b8;
+a{
+  &:link{
+    color: #28d7b8;
+  }
+  &:visited{
+    color: $default-color;
+  }
 }
-a:visited{
-  color: $default-color;
-}
+
 .clearfix::before, .clearfix::after {
   clear: both;
   display: table;
@@ -35,8 +38,11 @@ a:visited{
   display: none;
 }
 
+$page_width: 1050px;
+
+/* Main wrapper size */
 .container{
-  width: 1050px;
+  width: $page_width;
   margin: 0 auto;
 }
 
@@ -62,6 +68,7 @@ h2{
     height: 40px;
     position: fixed;
     z-index: 10;
+    // Logo
     .top-logo a{
       font-size: 14px;
       color: white;
@@ -76,6 +83,7 @@ h2{
         color: $default-color;
       }
     }
+    // Navigation menu
     ul{
       float: right;
       color: white;
@@ -137,10 +145,6 @@ h2{
 }
 
 
-
-/* Top bar with menu*/
-
-
 /* Slider */
 @mixin slider-background{
   background: #fbfbfb; /* Old browsers */
@@ -150,10 +154,38 @@ h2{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', endColorstr='#cbcbcb',GradientType=0 ); /* IE6-9 */
 }
 
+@keyframes slideInLeft {
+  from {
+    transform: translate($page_width);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate(-$page_width);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+
+.slideFromLeft {
+  animation: slideInLeft 1s;
+}
+
+.slideFromLeft {
+  animation: slideInRight 1s;
+}
+
+
 .slider {
   width: 100%;
   height: 504px;
   padding: 120px 0 50px 0;
+  transition: 2s;
   @include slider-background;
   .left-arrow,
   .right-arrow {
@@ -165,7 +197,6 @@ h2{
     color: $default-color;
     float:left;
     text-align: left;
-    &:hover,
     &:hover {
       color: #68d7b8;
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
@@ -176,13 +207,21 @@ h2{
     float: right;
     text-align: right;
   }
-  .slider-picture{
+  .slider-picture-1,.slider-picture-2, .slider-picture-3{
     width: 470px;
-    height:334px;
-    background-image: url('../images/black_chair.png');
+    height: 337px;
     background-repeat: no-repeat;
     background-size: cover;
     float: left;
+  }
+  .slider-picture-1{
+    background-image: url('../images/black_chair.png');
+  }
+  .slider-picture-2{
+    background-image: url('../images/orange.png');
+  }
+  .slider-picture-3{
+    background-image: url('../images/red.png');
   }
   .slider-description{
     width: 460px;
