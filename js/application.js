@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     // Wpisuje w summary_panel sume pol
-    sum.innerText = suma(chairPrice.innerText, colorPrice.innerText, patternPrice.innerText, transportPrice.innerText);
+    sum.innerText = suma(chairPrice.innerText, colorPrice.innerText, patternPrice.innerText, transportPrice.innerText) + " zł";
   }
 
   // Wszystkie pola list przy kliknieciu wywoluja funkcje makeChoice i updateSummary
