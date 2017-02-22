@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
   // Odnajduje checkboxDiv i przy kliknieciu wywoluje changeCheckboxState
-  var checkboxDiv = document.querySelector('div.checkbox');
+  var checkboxDiv = document.querySelector('.contact-form-agreement div.checkbox');
   checkboxDiv.addEventListener('click', changeCheckboxState);
 
 });
